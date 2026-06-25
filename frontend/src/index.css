@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --bs-primary: #2d4a22;
+  --bs-primary-rgb: 45, 74, 34;
+  --bs-secondary: #fdfbf7;
+  --bs-body-font-family: 'Inter', sans-serif;
+  
+  --font-serif: 'Playfair Display', serif;
+}
+
+body {
+  background-color: var(--bs-secondary);
+  color: #1a1a1a;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+  font-family: var(--font-serif) !important;
+  font-weight: 600;
+}
+
+.text-accent {
+  color: #d4a373 !important;
+}
+
+.btn {
+  border-radius: 50px !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.6rem 1.5rem;
+}
+
+.btn-sm {
+  padding: 0.4rem 1.2rem;
+  font-size: 0.8rem;
+}
+
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-10px);
+}
+
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #2d4a22;
+  --bs-btn-border-color: #2d4a22;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #1f3317;
+  --bs-btn-hover-border-color: #1f3317;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: #2d4a22;
+  --bs-btn-border-color: #2d4a22;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #2d4a22;
+  --bs-btn-hover-border-color: #2d4a22;
+}
+
+.text-primary {
+  color: #2d4a22 !important;
+}
+
+.bg-primary {
+  background-color: #2d4a22 !important;
+}
