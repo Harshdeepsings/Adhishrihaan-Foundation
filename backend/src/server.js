@@ -1,17 +1,23 @@
-const env = require('./config/env');
+const { PORT } = require('./config/env');
 const connectDB = require('./config/db');
 const app = require('./app');
-
-const PORT = env.PORT;
 
 const startServer = async () => {
   try {
     await connectDB();
-    app.listen(PORT, () => {
-      console.log(`Express server running on http://localhost:${PORT}`);
+    
+    const server = app.listen(PORT, () => {
+      console.log(`Express server is listening on port ${PORT}`);
     });
+
+    // Handle unhandled promise rejections globally
+    process.on('unhandledRejection', (err) => {
+      console.error(`Unhandled Rejection: ${err.message}`);
+      server.close(() => process.exit(1));
+    });
+
   } catch (error) {
-    console.error('Failed to start server:', error.message);
+    console.error(`Application failed to start: ${error.message}`);
     process.exit(1);
   }
 };
