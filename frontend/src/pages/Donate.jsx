@@ -7,7 +7,7 @@ export default function Donate() {
         Our online donation portal is currently under construction.
       </p>
       <p className="text-secondary fs-5">
-        Please check back soon for updates, or contact us directly if you'd like to contribute.
+        Please check back soon for updates, or contact us directly if you&apos;d like to contribute.
       </p>
     </div>
   );

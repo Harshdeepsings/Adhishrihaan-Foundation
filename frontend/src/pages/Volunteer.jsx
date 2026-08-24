@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
+import { contactService } from '../services/contactService';
 
 export default function Volunteer() {
   const [status, setStatus] = useState('');
@@ -14,20 +15,10 @@ export default function Volunteer() {
     const data = Object.fromEntries(formData.entries());
 
     try {
-      const response = await fetch('http://localhost:5000/api/volunteer', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok) {
-        setStatus('Application submitted successfully! We will contact you soon.');
-        setVariant('success');
-        e.target.reset();
-      } else {
-        setStatus('Something went wrong. Please try again.');
-        setVariant('danger');
-      }
+      await contactService.submitVolunteerForm(data);
+      setStatus('Application submitted successfully! We will contact you soon.');
+      setVariant('success');
+      e.target.reset();
     } catch {
       setStatus('Something went wrong. Please try again.');
       setVariant('danger');
